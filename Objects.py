@@ -45,5 +45,7 @@ class Point:
         return self._xcoord / 2
 
 a = Point(30,150)
-b = a.x_halved()
-print(b)
+b = Point(40,160)
+c = Point(60,180)
+points = [a,b,c]
+print(points[0].x_halved())
