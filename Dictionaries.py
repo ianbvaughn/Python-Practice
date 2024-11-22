@@ -11,6 +11,9 @@ eng_to_span={
     "nine":"nueve",
     "ten":"diez"
 }
+
+print(eng_to_span.items())
+
 #2. Create a function which prints all key-value pairs of a dictionary param.
 def print_dict(d):
     for i,k in d.items():
@@ -21,3 +24,10 @@ def some_squares(n):
     for j in range(1,n+1):
         s[j]=pow(j,2)
     return s
+#4. Iterating over dictionaries
+for key in eng_to_span:
+    print("Key:",key,"Value:",eng_to_span[key])
+
+#5. Alternate method of iteration
+for key,value in eng_to_span.items():
+    print("Key:",key,"Value:",value)
