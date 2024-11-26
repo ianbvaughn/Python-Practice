@@ -1,11 +1,12 @@
 class Employee:
+
     def __init__(self,name):
         self.name = name
 
-    def name_change(self,new_name):
+    def name_change(self,new_name) -> None:
         self.name=new_name
 
-    def get_name(self):
+    def get_name(self) -> str:
         return self.name
 
 class Developer(Employee):
@@ -20,6 +21,14 @@ class Manager(Employee):
             self.employees=[]
         else:
             self.employees=employees
+
+    def has_direct_reports(self):
+        for i in self.employees:
+            if i.__class__.__name__ == 'Manager':
+                return True
+            else:
+                return False
+
     def get_employees(self):
         return self.employees
 
@@ -37,8 +46,15 @@ class Manager(Employee):
         for e in self.employees:
             print(e.get_name())
 
+class Restrictions:
+    pass
+
 emp1=Employee('Joe')
 emp2=Developer('Dave','Python')
 emp3=Manager('Bob',[emp2])
-emp3.add_employees(emp1)
-emp3.print_employees()
+emp4=Manager('Jill', [emp3])
+
+all_employees = [emp1,emp2,emp3,emp4]
+
+for e in all_employees:
+    print(f'Employee Name: {e.get_name()}\nType: {e.__class__.__name__}')
