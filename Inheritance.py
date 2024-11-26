@@ -23,7 +23,22 @@ class Manager(Employee):
     def get_employees(self):
         return self.employees
 
+    def add_employees(self,emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+        else:
+            pass
+
+    def remove_employees(self,emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
+
+    def print_employees(self):
+        for e in self.employees:
+            print(e.get_name())
+
 emp1=Employee('Joe')
 emp2=Developer('Dave','Python')
 emp3=Manager('Bob',[emp2])
-print(emp3.get_employees()[0].get_name())
+emp3.add_employees(emp1)
+emp3.print_employees()
