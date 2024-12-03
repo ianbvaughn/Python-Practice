@@ -40,7 +40,7 @@ print(sort_two_strings(str1,str2))
 def is_pal(a):
  k = 0
  for i in a:
-  if i == a[-1-k]:
+  if i == a[-1-k]: #this compares each element with its 'reflection'
    continue
   else:
    print(a + ' is not a palindrome')

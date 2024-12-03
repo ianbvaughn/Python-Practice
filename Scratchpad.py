@@ -1,16 +1,11 @@
 import pickle
 
-students = {
-    "Student 1":{
-        "Name":"Ian","Age":26,"Grade":14
-    },
-    "Student 2":{
-        "Name":"Bob","Age":55,"Grade":19
-    }
-}
-print(students)
-with open('dbfile.txt','wb') as f:
-    pickle.dump(students,f)
-with open('dbfile.txt','rb') as i:
-    students2 = pickle.load(i)
-print(students2)
+class Student:
+    def __init__(self,name):
+        self._info={"Name":name}
+    def save_data(self):
+        with open('savefile.txt','wb') as f: #i could use f string to create different files depending on variables
+            pickle.dump(self._info,f)
+
+s = Student("Joe")
+s.save_data()
