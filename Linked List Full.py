@@ -17,6 +17,16 @@ class LinkedList:
                 current.next_node = node #Attach the new node to the tail.
                 break
             current=current.next_node #Move onto the next node in the Linked List.
+    def delete(self,value:int) -> Node:
+        dummy = Node(0,self.head)
+        prev,curr=dummy,self.head
+        while curr:
+            if curr.value == value:
+                prev.next_node = curr.next_node
+            else:
+                prev=curr
+            curr=curr.next_node
+        return dummy.next_node
     def print(self):
         current=self.head
         while True:
@@ -31,4 +41,6 @@ k.insert(1) #'1' is now the head of Linked List 'k'.
 k.insert(2)
 k.insert(3)
 k.insert(6)
+k.print()
+k.delete(2)
 k.print()
